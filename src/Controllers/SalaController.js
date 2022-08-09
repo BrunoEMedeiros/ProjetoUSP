@@ -22,9 +22,9 @@ export class SalaController{
             })
         }
        
-        return res.status(200).json({
-            msg: 'Cadastrado com sucesso!'
-        })
+        const data = await Sala.listarTodos();
+
+        return res.status(200).json(data)
       }
       catch(err){
         return res.status(500).send('Error to store sala: ' + err);
@@ -82,7 +82,7 @@ export class SalaController{
             if(!data)
             {
                 return res.status(203).json({
-                    msg : "Sala nao encontrada para atualizar!"
+                    msg : "Sala nao encontrada para excluir!"
                 })
             }
             else
