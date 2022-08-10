@@ -35,16 +35,15 @@ export class Sala {
     static async listarTodos(){
         try{
             const { recordsets } = await connection.query('select * from sala where status_sala = 1');       
-                
+
             if(recordsets[0] != ''){
                 return recordsets[0];
             }
-           
             return false;
                 
         }
         catch(err){
-            console.log(`Error to listarTodos 'salas': ${err}`);
+            console.log(`Error to listarTodos salas: ${err}`);
             await connection.close();
             return false;
         }

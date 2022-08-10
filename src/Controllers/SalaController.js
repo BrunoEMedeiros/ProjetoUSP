@@ -33,7 +33,9 @@ export class SalaController{
 
     static async listAll(req, res){
         try{
+
             const data = await Sala.listarTodos();
+            
             if(!data)
             {
                 return res.status(203).json({
